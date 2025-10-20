@@ -42,10 +42,10 @@ async function fetchFuturesKlinesBinance(symbol) {
     fs.writeFileSync(outFile, JSON.stringify(transformed, null, 2));
 
     // console.log(`✅ ${symbol}: Saved ${data.length} candles -> ${outFile}`);
-    return transformed.data.time.length;
+    return true;
   } catch (err) {
     console.error(`❌ Error fetching Binance ${symbol}:`, err.message);
-    return null;
+    return false;
   }
 }
 

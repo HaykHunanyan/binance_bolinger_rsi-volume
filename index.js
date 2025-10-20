@@ -30,7 +30,8 @@ async function runBackgroundLoop(w) {
     try {
       const symbols = await fetchUSDTSymbols_Binance();
       for (const symbol of symbols) {
-        await fetchFuturesKlinesBinance(symbol);
+        const fileAvailable = await fetchFuturesKlinesBinance(symbol);
+        if(!fileAvailable) continue;
         let rows = calculateRows(symbol);
         rows = rows.slice(-2);
         const [prev, last] = rows;
