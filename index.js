@@ -1,7 +1,6 @@
 const fs = require("fs");
 const path = require("path");
 const express = require("express");
-require("dotenv").config();
 
 const { fetchFuturesKlinesBinance } = require("./fetchFuturesKlines_binance");
 const { fetchUSDTSymbols_Binance } = require("./fetchUSDTSymbols_binance");
